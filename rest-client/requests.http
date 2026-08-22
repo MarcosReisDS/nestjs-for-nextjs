@@ -14,7 +14,7 @@ Content-Type: application/json
 
 ### Read one user
 # @name readOneUser
-GET {{baseUrl}}/user/abc
+GET {{baseUrl}}/user/123
 Authorization: Bearer {{jwtToken}}
 
 ### Create User
