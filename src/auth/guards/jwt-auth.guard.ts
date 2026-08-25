@@ -11,7 +11,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
         status?: any
     ): TUser {
         if(!user || info instanceof JsonWebTokenError) {
-            throw new UnauthorizedException(info.message);
+            throw new UnauthorizedException('Você precisa fazer login');
         }
 
         return super.handleRequest(err, user, info, context, status);
