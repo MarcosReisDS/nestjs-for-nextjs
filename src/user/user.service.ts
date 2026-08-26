@@ -80,7 +80,7 @@ export class UserService {
 
         const isCurrentPasswordValid = await this.hashingService.compare(dto.currentPassword, user.password);
 
-        if(!isCurrentPasswordValid) {
+        if (!isCurrentPasswordValid) {
             throw new UnauthorizedException('Senha atual inválida');
         }
 
@@ -88,6 +88,12 @@ export class UserService {
         user.forceLogout = true;
 
         return this.save(user);
+    }
+
+    async remove(id: string) {
+        const user = await this.findOneByOrFail({ id });
+        await this.userRepository.delete({ id });
+        return user;
     }
 
     save(user: User) {

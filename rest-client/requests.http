@@ -9,7 +9,7 @@ Content-Type: application/json
 
 {
     "email": "marcos@gmail.com",
-    "password": "1234567"
+    "password": "123456"
 }
 
 ### Read one user
@@ -49,3 +49,13 @@ Authorization: Bearer {{jwtToken}}
     "currentPassword": "123456",
     "newPassword": "1234567"
 }
+
+### Read one user
+# @name readOneUser
+GET {{baseUrl}}/user/me
+Authorization: Bearer {{jwtToken}}
+
+### Delete one user
+# @name deleteOneUser
+DELETE {{baseUrl}}/user/me
+Authorization: Bearer {{jwtToken}}
