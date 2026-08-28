@@ -59,3 +59,15 @@ Authorization: Bearer {{jwtToken}}
 # @name deleteOneUser
 DELETE {{baseUrl}}/user/me
 Authorization: Bearer {{jwtToken}}
+
+### Create post owned
+# @name createPostOwned
+POST {{baseUrl}}/post/me
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+    "title": "Tiutlo pddddost",
+    "excerpt": "Excertsssso",
+    "content": "Contenido"
+}
