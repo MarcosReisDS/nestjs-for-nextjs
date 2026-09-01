@@ -8,7 +8,7 @@ POST {{baseUrl}}/auth/login
 Content-Type: application/json
 
 {
-    "email": "marcos@gmail.com",
+    "email": "joao@gmail.com",
     "password": "123456"
 }
 
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 {
     "name": "Marcos",
-    "email": "marcos@gmail.com",
+    "email": "joao@gmail.com",
     "password": "123456"
 }
 
@@ -75,5 +75,23 @@ Authorization: Bearer {{jwtToken}}
 
 ### Read one post owned
 # @name readOnePostOwned
-GET {{baseUrl}}/post/me/232323
+GET {{baseUrl}}/post/me/30a688ec-8ee2-433b-aa48-c595409501e6
 Authorization: Bearer {{jwtToken}}
+
+### Read all posts owned
+# @name readAllPostsOwned
+GET {{baseUrl}}/post/me
+Authorization: Bearer {{jwtToken}}
+
+### Update post owned
+# @name updatePostOwned
+PATCH {{baseUrl}}/post/me/8933eb8e-9d28-4f81-adef-fb8c2c8972e7
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+{
+    "title": "NOVO - Titulo",
+    "excerpt": "NOVO - Expect",
+    "content": "NOVO - Contenido",
+    "published": true
+}
