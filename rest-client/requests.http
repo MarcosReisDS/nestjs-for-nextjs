@@ -72,3 +72,8 @@ Authorization: Bearer {{jwtToken}}
     "content": "Contenido",
     "coverImageUrl": "http://localhost"
 }
+
+### Read one post owned
+# @name readOnePostOwned
+GET {{baseUrl}}/post/me/232323
+Authorization: Bearer {{jwtToken}}
