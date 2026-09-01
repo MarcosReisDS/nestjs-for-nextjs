@@ -69,5 +69,6 @@ Authorization: Bearer {{jwtToken}}
 {
     "title": "Tiutlo pddddost",
     "excerpt": "Excertsssso",
-    "content": "Contenido"
+    "content": "Contenido",
+    "coverImageUrl": "http://localhost"
 }
