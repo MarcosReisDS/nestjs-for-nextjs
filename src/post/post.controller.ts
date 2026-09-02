@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseUUIDPipe, Patch, Post, Req, UseGuards } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post, Req, UseGuards } from "@nestjs/common";
 import { PostService } from "./post.service";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import type { AuthenticatedRequest } from "src/auth/types/authenticated-request";
@@ -48,5 +48,29 @@ export class PostController {
   ) {
     const post = await this.postService.update({ id }, dto, req.user)
     return new PostReponseDto(post);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete('me/:id')
+  async remove(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Req() req: AuthenticatedRequest,
+  ) {
+    const post = await this.postService.remove({ id }, req.user)
+    return new PostReponseDto(post);
+  }
+
+  @Get(':slug')
+  async findOnePublished(
+    @Param('slug') slug: string
+  ) {
+    const post = await this.postService.findOneOrFail({ slug, published: true })
+    return new PostReponseDto(post);
+  }
+
+  @Get()
+  async findAllPublished() {
+    const posts = await this.postService.findAll({ published: true })
+    return posts.map(post => new PostReponseDto(post));
   }
 }

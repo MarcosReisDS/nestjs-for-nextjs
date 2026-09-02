@@ -67,7 +67,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwtToken}}
 
 {
-    "title": "Tiutlo pddddost",
+    "title": "DELETE Tiutlo pddddost",
     "excerpt": "Excertsssso",
     "content": "Contenido",
     "coverImageUrl": "http://localhost"
@@ -75,7 +75,7 @@ Authorization: Bearer {{jwtToken}}
 
 ### Read one post owned
 # @name readOnePostOwned
-GET {{baseUrl}}/post/me/30a688ec-8ee2-433b-aa48-c595409501e6
+GET {{baseUrl}}/post/me/0b1bcc55-bb8d-48f7-bb71-c00b8342d7f9
 Authorization: Bearer {{jwtToken}}
 
 ### Read all posts owned
@@ -95,3 +95,16 @@ Authorization: Bearer {{jwtToken}}
     "content": "NOVO - Contenido",
     "published": true
 }
+
+### Delete post owned
+# @name deletePostOwned
+DELETE {{baseUrl}}/post/me/0b1bcc55-bb8d-48f7-bb71-c00b8342d7f9
+Authorization: Bearer {{jwtToken}}
+
+### Read all post public
+# @name readAllPostPublic
+GET {{baseUrl}}/post/
+
+### Read one post public
+# @name readOnePostPublic
+GET {{baseUrl}}/post/tiutlo-pddddost-obfsn0
