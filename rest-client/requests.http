@@ -108,3 +108,20 @@ GET {{baseUrl}}/post/
 ### Read one post public
 # @name readOnePostPublic
 GET {{baseUrl}}/post/tiutlo-pddddost-obfsn0
+
+### Upload Image
+# @name uploadImage
+POST {{baseUrl}}/upload
+Authorization: Bearer {{jwtToken}}
+Content-Type: multipart/form-data; boundary=----BryenFormBoundary
+
+------BryenFormBoundary
+Content-Disposition: form-data; name="file"; filename="image.png"
+Content-Type: image/png
+
+< ../dev/imagens/image.png
+------BryenFormBoundary--
+
+### Read Image
+# @name ReadImage
+GET http://localhost:3000/uploads/2026-09-04/1788493857374-p9m08o.png
